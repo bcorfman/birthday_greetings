@@ -7,7 +7,7 @@ class MailhogSMTP(SMTP):
         super().__init__('localhost', port=1025)
         self.login(username, password)
 
-    """A wrapper for handling SMTP connections to FastMail."""
+    """A wrapper for handling SMTP connections to Mailhog, a SMTP-based email simulator for dev/test purposes."""
     def send_email(self, from_address, to_address, subject, content, mail_options=(), rcpt_options=()):
         msg = EmailMessage()
         msg['Subject'] = subject
