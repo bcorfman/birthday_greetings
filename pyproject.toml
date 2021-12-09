@@ -1,16 +1,22 @@
 [tool.poetry]
 name = "birthday"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 authors = ["Brandon Corfman <bcorfman@fastmail.fm>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-twilio = "^7.3.1"
+python-dateutil = "^2.8.2"
+dat = "^1.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
 pytest-asyncio = "^0.16.0"
+pytest-freezegun = "^0.4.2"
+
+[tool.pytest.ini_options]
+log_file = "pytest.log"
+log_file_level = "ERROR"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

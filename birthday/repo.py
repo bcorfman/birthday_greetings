@@ -2,7 +2,7 @@ import os
 import sqlite3
 import contextlib
 from abc import ABC, abstractmethod
-from collections import namedtuple
+from birthday.friend import Friend
 
 
 class Repository(ABC):
@@ -19,20 +19,7 @@ class FileRepository(Repository):
 
     def read(self):
         with open(self.filename) as f:
-            header = f.readline()
-
-            class Friend(namedtuple('Friend', header + ', greeting_sent', defaults=[None])):
-                @property
-                def year(self):
-                    return int(self[2].split('/')[0])
-
-                @property
-                def month(self):
-                    return int(self[2].split('/')[1])
-
-                @property
-                def day(self):
-                    return int(self[2].split('/')[2])
+            header = f.readline().strip()
 
             for line in f.readlines():
                 elements = line.strip().replace(',', '').split()
@@ -52,19 +39,6 @@ class SqliteRepository(Repository):
                                     in [row for row in
                                         cursor.execute("SELECT * from pragma_table_info('Birthdays') as tblInfo")
                                    .fetchall()]])
-
-                class Friend(namedtuple('Friend', header + ', greeting_sent', defaults=[None])):
-                    @property
-                    def year(self):
-                        return int(self[2].split('/')[0])
-
-                    @property
-                    def month(self):
-                        return int(self[2].split('/')[1])
-
-                    @property
-                    def day(self):
-                        return int(self[2].split('/')[2])
 
                 for elements in cursor.execute('SELECT * FROM birthdays'):
                     self.records.append(Friend(*elements))

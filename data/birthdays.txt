@@ -1,3 +1,3 @@
 last_name, first_name, date_of_birth, email
-Corfman, Brandon, 1972/10/01, bcorfman@fastmail.fm
-Corfman, Doris, 1969/11/07, devoncecil@fastmail.fm
+Doe, John, 1972/12/08, john.doe@zone.com
+Doe, Jane, 1969/07/08, jane.doe@zone.com
