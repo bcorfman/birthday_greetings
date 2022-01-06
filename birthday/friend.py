@@ -15,10 +15,10 @@ class Friend:
     def __init__(self, *args):
         self.last_name = args[0]
         self.first_name = args[1]
-        self.date_of_birth = parser.parse(args[2])
+        self.date_of_birth = parser.parse(args[2]).date()
         self.email = args[3]
         if len(args) == 5 and args[4] is not None:
-            self.greeting_sent = parser.parse(args[4])
+            self.greeting_sent = parser.parse(args[4]).date()
         else:
             self.greeting_sent = None
 

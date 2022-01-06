@@ -6,13 +6,12 @@ authors = [
     {name = "Brandon Corfman", email = "bcorfman@fastmail.fm"},
 ]
 dependencies = [
-    "python-dateutil>=2.8.2",
-]
+    "python-dateutil>=2.8.2"]
 requires-python = ">=3.9"
 license = {text = "MIT"}
 
 [project.urls]
-homepage = ""
+homepage = "https://github.com/bcorfman/birthday_greetings"
 
 [project.optional-dependencies]
 [tool]
